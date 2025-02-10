@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronald Waingort's Portfolio</title>
+    <meta name="description" content="Welcome to Ronald Waingort's portfolio website. Explore my projects, skills, and contact information.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <header role="banner">
+        <h1>Welcome to My Portfolio</h1>
+        <nav role="navigation">
+            <button id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+            <ul id="nav-menu" class="hide">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main role="main">
+        <section id="about" role="region" aria-labelledby="about-heading">
+            <h2 id="about-heading">About Me</h2>
+            <p>My name is Ronald Waingort. I am currently COO of EVectriFi Technologies, an EV Charging company, and have a BS in Aerospace Engineering</p>
+            <img src="C:\Users\waing\OneDrive\Desktop\Ronny Headshots\Ronny Headshot Small.jpg" alt="Profile picture of Ronald Waingort">
+        </section>
+        <section id="projects" role="region" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Projects</h2>
+            <div id="project-filters">
+                <button onclick="filterProjects('all')">All</button>
+                <button onclick="filterProjects('category1')">Category 1</button>
+                <button onclick="filterProjects('category2')">Category 2</button>
+                <button onclick="filterProjects('category3')">Category 3</button>
+            </div>
+            <div id="projects-list">
+                <article role="article" class="category1">
+                    <h3>Project 1</h3>
+                    <p>Description of project 1. This is a placeholder text for the first project.</p>
+                    <img src="C:\Users\waing\OneDrive\Desktop\Ronny Headshots\Ronny Headshot Small.jpg" alt="Screenshot of Project 1">
+                    <a href="#" aria-label="Link to Project 1">View Project</a>
+                </article>
+                <article role="article" class="category2">
+                    <h3>Project 2</h3>
+                    <p>Description of project 2. This is a placeholder text for the second project.</p>
+                    <img src="project2.jpg" alt="Screenshot of Project 2">
+                    <a href="#" aria-label="Link to Project 2">View Project</a>
+                </article>
+                <article role="article" class="category3">
+                    <h3>Project 3</h3>
+                    <p>Description of project 3. This is a placeholder text for the third project.</p>
+                    <img src="project3.jpg" alt="Screenshot of Project 3">
+                    <a href="#" aria-label="Link to Project 3">View Project</a>
+                </article>
+            </div>
+        </section>
+        <section id="skills" role="region" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Skills</h2>
+            <ul>
+                <li class="html">HTML</li>
+                <li class="css">CSS</li>
+                <li class="javascript">JavaScript</li>
+            </ul>
+        </section>
+        <section id="contact" role="form" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact</h2>
+            <form>
+                <label for="name">Name: <span style="color: red;">*</span></label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email: <span style="color: red;">*</span></label>
+                <input type="email" id="email" name="email">
+                <label for="message">Message: <span style="color: red;">*</span></label>
+                <textarea id="message" name="message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+    <div id="lightbox" class="lightbox">
+        <img id="lightbox-img" class="lightbox-img" src="" alt="Lightbox Image">
+    </div>
+    <footer role="contentinfo">
+        <p>&copy; 2023 My Portfolio</p>
+    </footer>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var navMenu = document.getElementById('nav-menu');
+            if (navMenu.classList.contains('hide')) {
+                navMenu.classList.remove('hide');
+            } else {
+                navMenu.classList.add('hide');
+            }
+        });
+
+        function filterProjects(category) {
+            var projects = document.querySelectorAll('#projects-list article');
+            projects.forEach(function(project) {
+                if (category === 'all' || project.classList.contains(category)) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
